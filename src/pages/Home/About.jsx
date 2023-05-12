@@ -13,7 +13,7 @@ export const About = () => {
             </div>
             <div className='w-full lg:w-1/2 flex flex-col gap-6 items-start px-2'>
             <h1 className="text-2xl font-semibold text-red-600">About Us</h1>
-            <h1 className="text-5xl font-bold w-11/12">We're Qualified & Of Experience In This Field</h1>
+            <h1 className="text-5xl font-bold w-11/12 leading-[60px] tracking-wider">We're Qualified & Of Experience In This Field</h1>
             <p>
                 Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. 
                 In deleniti eaque aut repudiandae et a id nisi. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aliquam, sunt dolorem laborum neque reprehenderit at placeat, quisquam numquam doloremque id quas mollitia libero totam officiis nobis voluptates consectetur fugit quae!
