@@ -1,7 +1,11 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../providers/AuthProvider';
+import { updateProfile } from 'firebase/auth';
 
 const SignUP = () => {
+
+    const {createUser} = useContext(AuthContext)
     const handleSignUp = (e) =>{
         e.preventDefault();
 
@@ -10,6 +14,21 @@ const SignUP = () => {
         const email = form.email.value;
         const password = form.password.value;
 
+        createUser(email,password)
+        .then(res => {
+            updateProfile(res.user, {
+                displayName: name
+              }
+              ).then(() => {
+              
+              }).catch((error) => {
+                console.log(error)
+              });
+        
+        })
+        .catch(err => console.log(err))
+
+        
         
     }
 

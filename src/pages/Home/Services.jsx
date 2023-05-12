@@ -17,7 +17,7 @@ export const Services = () => {
             <p className='leading-8 tracking-[1px] text-lg'>Regular Maintenance is essential for keeping your vehicle up and running as it should and skipping scheduled maintenance can lead to problems that should be easy to fix becoming problems that cost hundreds of dollars to repair</p>
         </div>
 
-        <div className="container grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-y-8 md:gap-y-10 mt-8 md:mt-10">
+        <div className="container grid justify-items-center grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-y-8 md:gap-x-4 md:gap-y-10 mt-8 md:mt-10 mx-auto">
            { serviceData.map(el => <ServicesCard key={el._id} services={el}></ServicesCard>)}
         </div>
         
