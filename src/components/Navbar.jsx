@@ -26,7 +26,7 @@ const Navbar = () => {
     </ul>
   </div>
   <div className="navbar-end">
-  <button className="btn btn-outline btn-error text-lg">Appointment</button>
+  <button className="btn btn-error text-white bg-red-600 hover:bg-red-500 text-lg my-4">Appointment</button>
   </div>
 </div>
   )
