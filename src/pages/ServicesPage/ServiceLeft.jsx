@@ -5,7 +5,7 @@ const ServiceLeft = ({data}) => {
 
     const {title,img,price,description,facility} =data;
   return (
-    <div className='flex flex-col gap-6 w-3/5'>
+    <div className='flex flex-col gap-6 w-4/5 md:w-3/5'>
         <img src={img} className='rounded-lg w-full object-cover'/>
         <h1 className='text-3xl md:text-5xl font-semibold text-zinc-800'>{title}</h1>
         <p className='text-lg text-center md:text-left'>{description}</p>
@@ -63,7 +63,7 @@ const ServiceLeft = ({data}) => {
 
         <Iframe url="https://www.youtube.com/embed/09zIjp0qBRhttps://www.youtube.com/embed/ZMMJyFkyPbM"
         width="100%"
-        height="500px"
+        height="350px"
         id=""
         className=""
         display="block"

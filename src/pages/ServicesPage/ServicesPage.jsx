@@ -5,15 +5,15 @@ import ServiceLeft from './ServiceLeft'
 import ServiceRight from './ServiceRight'
 
 const ServicesPage = () => {
-//  const {title,img,price,description,facility} = useLoaderData();
+//  const {title,img,price,description,facility,price} = useLoaderData();
 const data = useLoaderData()
   return (
     <>
     <section className='my-10'>
     <ServicesBanner></ServicesBanner>
-    <div className='flex gap-5 my-10'>
+    <div className='flex flex-col items-center md:items-start md:flex-row gap-5 my-10'>
     <ServiceLeft data={data}></ServiceLeft>
-    <ServiceRight></ServiceRight>
+    <ServiceRight data={data}></ServiceRight>
     </div>
     </section>
     </>
