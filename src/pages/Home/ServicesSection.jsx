@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react'
 import ServicesCard from './ServicesCard';
 
-export const Services = () => {
+export const ServicesSection = () => {
 
     const [serviceData, SetServiceData] = useState([]);
     
     useEffect(()=>{
-        fetch('services.json').then(res => res.json()).then(data => SetServiceData(data))
+        fetch('http://localhost:5000/services').then(res => res.json()).then(data => SetServiceData(data))
     },[])
     
   return (

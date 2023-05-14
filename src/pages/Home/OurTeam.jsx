@@ -28,7 +28,7 @@ const OurTeam = () => {
 
     <div className='text-center w-3/4 mx-auto space-y-4 py-6'>
         <p className="text-2xl font-semibold text-red-600">Team</p>
-        <h1 className='text-5xl font-bold'>Meet Our Tean</h1>
+        <h1 className='text-5xl font-bold'>Meet Our Team</h1>
         <p className='leading-8 tracking-[1px] text-lg'>the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable.</p>
     </div>
 
