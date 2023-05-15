@@ -1,12 +1,20 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import ServicesBanner from '../../components/ServicesBanner'
 import { useLoaderData } from 'react-router-dom'
 import ServiceLeft from './ServiceLeft'
 import ServiceRight from './ServiceRight'
+import { animateScroll as scroll } from "react-scroll";
 
 const ServicesPage = () => {
-//  const {title,img,price,description,facility,price} = useLoaderData();
+
 const data = useLoaderData()
+
+useEffect(()=>{
+  scroll.scrollToTop();
+},[])
+
+
+
   return (
     <>
     <section className='my-10'>

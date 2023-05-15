@@ -79,7 +79,7 @@ const ServiceRight = ({data}) => {
 {/* price section */}
 
     <h1 className='text-5xl text-zinc-800 font-semibold self-start'>Price: ${price}</h1>  
-    <Link className='w-full'><button className="btn btn-error text-white bg-red-600 hover:bg-red-500 border-none text-lg font-bold rounded-xl w-full">Proceed Checkout</button></Link>
+    <Link to={`/services/book/${_id}`} className='w-full'><button className="btn btn-error h-16 text-white bg-red-600 hover:bg-red-500 border-none text-lg font-bold rounded-xl w-full">Proceed Checkout</button></Link>
     </div>
   )
 }

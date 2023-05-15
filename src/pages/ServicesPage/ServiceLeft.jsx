@@ -3,11 +3,11 @@ import Iframe from 'react-iframe';
 
 const ServiceLeft = ({data}) => {
 
-    const {title,img,price,description,facility} =data;
+    const {title,img,description,facility} =data;
   return (
     <div className='flex flex-col gap-6 w-4/5 md:w-3/5'>
         <img src={img} className='rounded-lg w-full object-cover'/>
-        <h1 className='text-3xl md:text-5xl font-semibold text-zinc-800'>{title}</h1>
+        <h1 className='text-3xl md:text-5xl text-center md:text-left font-semibold text-zinc-800'>{title}</h1>
         <p className='text-lg text-center md:text-left'>{description}</p>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 justify-items-center my-4">
         {
@@ -20,7 +20,7 @@ const ServiceLeft = ({data}) => {
         }
         </div>
 
-        <h1 className='text-3xl md:text-5xl font-semibold text-zinc-800'>3 simple steps to process</h1>
+        <h1 className='text-3xl md:text-5xl font-semibold text-zinc-800 text-center md:text-left'>3 simple steps to process</h1>
         <p className='text-lg text-center md:text-left'>Auscipit accusamus aspernatur nam nemo! Voluptate repellendus explicabo eos saepe, est expedita doloribus vel perferendis facere fugiat incidunt ipsam in impedit soluta. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Impedit error quas aliquid, a nulla consequuntur cumque, perspiciatis cupiditate dolores itaque molestiae nesciunt architecto, libero placeat atque distinctio quis rem quidem!</p>
         {/* setps */}
 

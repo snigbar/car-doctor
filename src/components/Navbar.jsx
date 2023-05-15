@@ -1,11 +1,32 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import logo from '../assets/logo.svg'
+import { AuthContext } from '../providers/AuthProvider'
+
+import { Link as ScrollLink, animateScroll as scroll } from "react-scroll";
+import { Link } from 'react-router-dom';
 
 const Navbar = () => {
 
+  const {user,logOut} = useContext(AuthContext);
+
+ 
     const navLinks = <>
-         <li><a>Item 3</a></li>
-         <li><a>Item 3</a></li>
+         <li><Link to="/">Home</Link></li>
+         
+         <li>
+         <ScrollLink activeClass="active" to="products" spy={true} smooth={true}offset={-50}duration={1000}>
+        Products
+        </ScrollLink>
+         </li>
+         <li>
+         <ScrollLink activeClass="active" to="services" spy={true} smooth={true}offset={-50}duration={1000}>
+        Services
+        </ScrollLink>
+         </li>
+         
+         <li><Link to="/services/bookings">My Bookings</Link></li>
+         <li><Link to="/signup">Register</Link></li>
+        
     </>
   return (
     <div className="navbar bg-base-100 h-28 mb-5">
@@ -26,7 +47,9 @@ const Navbar = () => {
     </ul>
   </div>
   <div className="navbar-end">
-  <button className="btn btn-error text-white bg-red-600 hover:bg-red-500 text-lg my-4">Appointment</button>
+  { user?.email?
+        <button className="btn btn-error text-white bg-red-600 hover:bg-red-500 text-lg my-4" onClick={()=>logOut()}>Logout</button>
+          :<Link to='/login'><button className="btn btn-primary">Sign In</button></Link>}
   </div>
 </div>
   )

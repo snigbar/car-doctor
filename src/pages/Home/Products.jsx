@@ -28,7 +28,7 @@ function Products() {
 
 
   return (
-    <section className='my-8'>
+    <section className='my-8' id="products">
     <div className='text-center w-3/4 mx-auto space-y-4 py-6'>
         <p className="text-2xl font-semibold text-red-600">Products</p>
         <h1 className='text-5xl font-bold'>Browse Our Products</h1>

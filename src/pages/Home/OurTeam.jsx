@@ -7,10 +7,10 @@ import team3 from '../../assets/images/team/3.jpg'
 import { FaGooglePlay,FaFacebookF,FaInstagram,FaYoutube } from "react-icons/fa";
 const OurTeam = () => {
 
-    const teamenerator =(img,name,designation) =>{
+  const teamenerator =(img,name,designation) =>{
 
-    return <div className="card card-compact w-96 bg-base-100 shadow-xl md:w-80 lg:w-96">
-   <figure><img src={img} className='h-64' /></figure>
+  return <div className="card card-compact w-96 bg-base-100 shadow-xl md:w-80 lg:w-96">
+  <figure><img src={img} className='h-64' /></figure>
    <div className="card-body py-4 justify-center items-center gap-2">
      <h2 className="card-title">{name}</h2>
      <p className='text-xl text-zinc-700'>{designation}</p>
@@ -22,6 +22,7 @@ const OurTeam = () => {
         </div>
    </div>
  </div>
+
     }
   return (
     <section className='my-10 md:my-16 bg-gray-50 px-4 pb-10 md:pb-20'>
