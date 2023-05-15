@@ -1,11 +1,14 @@
 import React, { useContext } from 'react'
 import { useLoaderData } from 'react-router-dom';
 import { AuthContext } from '../../providers/AuthProvider';
+import moment from 'moment/moment';
 
 const Book = () => {
 
 const {title,price,img,_id} = useLoaderData();
 const {user}= useContext(AuthContext);
+const dateToday = moment().format('LL');
+
 
 const handleBookService = event =>{
     event.preventDefault();
@@ -32,7 +35,7 @@ const handleBookService = event =>{
         body: JSON.stringify(booking)
     }).then(res => res.json()).then(data => {
         if(data.insertedId) alert("service booked")
-        console.log(data)
+       
     })
     }
   return (
@@ -44,7 +47,7 @@ const handleBookService = event =>{
     <div className="mt-8 grid lg:grid-cols-2 gap-4">        
     <div>
     <label htmlFor="name" className="text-sm text-gray-700 block mb-1 font-medium">Name</label>
-    <input type="text" name="name" id="name" className="bg-gray-100 border border-gray-200 rounded py-1 px-3 block focus:ring-blue-500 focus:border-blue-500 text-gray-700 w-full" placeholder="Enter your name" />       
+    <input type="text" name="name" id="name" className="bg-gray-100 border border-gray-200 rounded py-1 px-3 block focus:ring-blue-500 focus:border-blue-500 text-gray-700 w-full" placeholder="Enter your name" required/>       
     </div>
     <div>         
     <label htmlFor="email" className="text-sm text-gray-700 block mb-1 font-medium">Email Adress</label>        
@@ -54,7 +57,7 @@ const handleBookService = event =>{
     <input type="text" name="job" id="job" className="bg-gray-100 border border-gray-200 rounded py-1 px-3 block focus:ring-blue-500 focus:border-blue-500 text-gray-700 w-full" placeholder="(ex. developer)" defaultValue={price} readOnly/>        
     </div>        
     <div><label htmlFor="brithday" className="text-sm text-gray-700 block mb-1 font-medium">Date</label>          
-    <input name="date" id="brithday" className="bg-gray-100 border border-gray-200 rounded py-1 px-3 block focus:ring-blue-500 focus:border-blue-500 text-gray-700 w-full" placeholder="(01/01/2023)" type="date" />        
+    <input name="date" id="brithday" className="bg-gray-100 border border-gray-200 rounded py-1 px-3 block focus:ring-blue-500 focus:border-blue-500 text-gray-700 w-full" value={dateToday} placeholder={dateToday} type="text" readOnly/>        
     </div></div>  
     <div className="space-x-4 mt-8"> 
     <button className="btn text-white bg-red-600 hover:bg-red-500 text-lg my-4 rounded-xl border-none" type='submit'>Submit</button>

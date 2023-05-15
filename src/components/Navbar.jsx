@@ -3,25 +3,34 @@ import logo from '../assets/logo.svg'
 import { AuthContext } from '../providers/AuthProvider'
 
 import { Link as ScrollLink, animateScroll as scroll } from "react-scroll";
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
 const Navbar = () => {
 
   const {user,logOut} = useContext(AuthContext);
+  const location = useLocation()
 
  
     const navLinks = <>
          <li><Link to="/">Home</Link></li>
          
          <li>
-         <ScrollLink activeClass="active" to="products" spy={true} smooth={true}offset={-50}duration={1000}>
-        Products
-        </ScrollLink>
+          {
+            location.pathname === '/'?
+            <ScrollLink activeClass="active" to="products" spy={true} smooth={true}offset={-50}duration={1000}>
+            Products
+            </ScrollLink>
+            :<Link to='/'>Products</Link>
+          }
+        
          </li>
-         <li>
-         <ScrollLink activeClass="active" to="services" spy={true} smooth={true}offset={-50}duration={1000}>
-        Services
-        </ScrollLink>
+         <li>{
+         location.pathname === '/'?
+            <ScrollLink activeClass="active" to="services" spy={true} smooth={true}offset={-50}duration={1000}>
+            Services
+            </ScrollLink>
+            :<Link to='/'>Services</Link>
+         }
          </li>
          
          <li><Link to="/services/bookings">My Bookings</Link></li>

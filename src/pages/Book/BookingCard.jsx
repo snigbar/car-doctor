@@ -1,9 +1,9 @@
 import React from 'react'
 
-const BookingCard = ({data,handleDelete}) => {
+const BookingCard = ({data,handleDelete,handleConfirm}) => {
 
-    const {_id,img,service,customerName,date,price,service_id} =data[0];
-    
+    const {_id,img,service,customerName,date,price,status} =data;
+   
     
   return (
     <tr>
@@ -32,6 +32,13 @@ const BookingCard = ({data,handleDelete}) => {
     <td>{date}</td>
     <th>
      ${price}
+    </th>
+    <th>
+    {status?
+    <button className="btn btn-primary">confirmed</button>
+    :<button className="btn btn-error btn-outline" onClick={()=> handleConfirm(_id)}>confirm</button>
+    }
+    
     </th>
   </tr>
   )
