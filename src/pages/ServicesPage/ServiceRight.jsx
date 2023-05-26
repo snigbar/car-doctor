@@ -10,7 +10,7 @@ const ServiceRight = ({data}) => {
     const [serviceData, SetServiceData] = useState([]);
     
     useEffect(()=>{
-        fetch('http://localhost:5000/services').then(res => res.json()).then(data => SetServiceData(data))
+        fetch('https://car-doc-server-chi.vercel.app/services').then(res => res.json()).then(data => SetServiceData(data))
     },[])
 
   return (

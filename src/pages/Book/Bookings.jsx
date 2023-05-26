@@ -2,23 +2,40 @@ import React, { useContext, useEffect, useState } from 'react'
 import { AuthContext } from '../../providers/AuthProvider'
 import BookingCard from './BookingCard';
 import swal from 'sweetalert';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 const Bookings = () => {
 
-    const {user} = useContext(AuthContext);
+    const {user,token} = useContext(AuthContext);
     const [bookings, setBookings] = useState([])
-   
+    const navigate = useNavigate();
+
     
-    const url = `http://localhost:5000/bookings?email=${user?.email}`;
 
     useEffect(()=>{
-       fetch(url)
-       .then(res => res.json())
-       .then(data => {
-        setBookings(data)
+
+      const url = `https://car-doc-server-chi.vercel.app/bookings?email=${user?.email}`;
+      
+      const fetchData =async() =>{
        
-      })
-    },[])
+       const response =await fetch(url,{
+        method:"GET",
+        headers:{
+          'authorization': `Bearer ${localStorage.getItem('car-doc-token')}`
+        }
+       })
+       const data = await response.json()
+      
+      if(!data.error) {
+        setBookings(data)
+        
+      }
+      }
+      
+      fetchData()
+      
+
+    },[token,user,navigate])
 
     
     
@@ -34,7 +51,7 @@ const Bookings = () => {
           .then(willDelete => {
             if (willDelete) {
                 
-                fetch(`http://localhost:5000/bookings/${id}`,{
+                fetch(`https://car-doc-server-chi.vercel.app/bookings/${id}`,{
                     method:"DELETE"
                 })
                 .then(res => res.json())
@@ -53,7 +70,8 @@ const Bookings = () => {
 
 
     const handleConfirm = id =>{
-        fetch(`http://localhost:5000/bookings/${id}`,{
+
+        fetch(`https://car-doc-server-chi.vercel.app/bookings/${id}`,{
             method: 'PATCH',
             headers: {
                 'content-type': 'application/json'
@@ -80,7 +98,7 @@ const Bookings = () => {
     }
 
   return (
-    <div>
+    <div className='my-10'>
 
     <div className="overflow-x-auto w-full">
   <table className="table w-full">
@@ -113,3 +131,5 @@ const Bookings = () => {
 }
 
 export default Bookings
+
+// https://car-doc-server-chi.vercel.app/bookings?email=${user?.email}

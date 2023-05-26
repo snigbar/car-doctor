@@ -26,7 +26,7 @@ const handleBookService = event =>{
         service_id: _id, 
         price: price
     }
-    fetch('http://localhost:5000/book',{
+    fetch('https://car-doc-server-chi.vercel.app/book',{
 
         method:"POST",
         headers:{
@@ -39,6 +39,7 @@ const handleBookService = event =>{
     })
     }
   return (
+  
     <div className="p-8 rounded border border-gray-200">    
     <h1 className="font-medium text-4xl">Book your Service</h1>    
     <p className="text-gray-600 mt-6 text-2xl">{title}</p> 
@@ -65,6 +66,7 @@ const handleBookService = event =>{
     </div>    
     </form> 
     </div>
+ 
   )
 }
 
